@@ -19,14 +19,14 @@ export default function Article({ data }: ArticleProps) {
     const renderContent = (content: string, index: number) => {
         if (openIndex === index) {
             return (
-                <div className="text-brown-800 text-base text-justify">
+                <div className="text-yellow-800 p-2 text-base text-justify">
                     {content}
                 </div>
             );
         } else {
             const trimmedContent = content.substring(0, 300); // Adjust the length as needed
             return (
-                <div className="text-brown-700 text-base text-justify">
+                <div className="text-yellow-800 p-2 text-base text-justify">
                     {trimmedContent}...
                 </div>
             );
@@ -46,14 +46,14 @@ export default function Article({ data }: ArticleProps) {
                         alt={article.title}
                         width={400}
                         height={0}
-                        className="rounded-md h-auto float-left m-4"
+                        className={`rounded-md h-auto m-4 ${index % 2 === 0 ? 'lg:float-left' : 'lg:float-right'} lg:float-none`}
                         style={{ float: index % 2 === 0 ? 'left' : 'right' }}
                     />
-                    <div className="font-bold text-brown-900 text-2xl">{article.title}</div>
-                    <div className="text-brown-600 text-lg">{article.subtitle}</div>
-                    <div className="text-sm text-brown-700 italic">{article.author}</div>
+                    <div className="font-bold text-yellow-950 mt-4 text-brown-900 text-2xl text-center lg:text-left">{article.title}</div>
+                    <div className="text-yellow-900 text-lg text-center lg:text-left">{article.subtitle}</div>
+                    <div className="text-sm text-yellow-800 text-brown-700 italic text-center lg:text-left">By: {article.author}</div>
                     {renderContent(article.content, index)}
-                    <button onClick={() => toggleRead(index)} className="text-brown-800 hover:text-brown-600 font-semibold">
+                    <button onClick={() => toggleRead(index)} className="p-2 text-yellow-950 hover:text-brown-600 font-semibold">
                         {openIndex === index ? "Show Less" : "Read More"}
                     </button>
                 </div>
