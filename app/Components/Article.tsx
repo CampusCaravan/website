@@ -19,14 +19,14 @@ export default function Article({ data }: ArticleProps) {
     const renderContent = (content: string, index: number) => {
         if (openIndex === index) {
             return (
-                <div className="text-brown-800 text-base">
+                <div className="text-brown-800 text-base text-justify">
                     {content}
                 </div>
             );
         } else {
             const trimmedContent = content.substring(0, 300); // Adjust the length as needed
             return (
-                <div className="text-brown-700 text-base">
+                <div className="text-brown-700 text-base text-justify">
                     {trimmedContent}...
                 </div>
             );
