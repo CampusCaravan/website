@@ -6,7 +6,7 @@ interface ArticleData {
     subtitle: string;
     author: string;
     image: string;
-    content: string;
+    content: string[]; // Changed to an array of strings
 }
 
 interface ArticleProps {
@@ -16,15 +16,18 @@ interface ArticleProps {
 export default function Article({ data }: ArticleProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    const renderContent = (content: string, index: number) => {
+    const renderContent = (content: string[], index: number) => {
         if (openIndex === index) {
             return (
                 <div className="text-yellow-800 p-2 text-base text-justify">
-                    {content}
+                    {content.map((para, idx) => (
+                        <p className='mb-3' key={idx}>{para}</p> // Render each paragraph
+                        
+                    ))}
                 </div>
             );
         } else {
-            const trimmedContent = content.substring(0, 300); // Adjust the length as needed
+            const trimmedContent = content[0].substring(0,300); // Show only the first two paragraphs
             return (
                 <div className="text-yellow-800 p-2 text-base text-justify">
                     {trimmedContent}...
