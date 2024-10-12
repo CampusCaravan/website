@@ -1,0 +1,15 @@
+import Link from "next/link";
+
+export default function Logo()
+{
+  return (
+    <div>
+      <div className="flex justify-start items-center gap-x-5 shrink">
+        <div className="h-20 w-20 border-4 rounded-full "></div>
+        <Link href="/">
+          <h2>Campus Caravan</h2>
+          </Link>
+      </div>
+    </div>
+  );
+}
