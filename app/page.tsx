@@ -1,14 +1,11 @@
-import About from "./Components/About"
-import Article from "./Components/ArticlePage";
-import Contact from "./Components/Contact";
-import NavBar from "./Components/NavBar";
-export default function Page ()
-{
-    return (
-        <div>
-            <NavBar/>
-            <Article/>
-        </div>
-    );
-}
+import NavBar from "@/Components/Navbar/NavBar";
+import Hero from "@/Components/Home/Hero";
 
+export default function Page() {
+  return (
+    <div>
+      <NavBar />
+      <Hero></Hero>
+    </div>
+  );
+}
